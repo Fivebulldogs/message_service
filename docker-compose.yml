@@ -1,0 +1,22 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    tty: true
+    command: ./manage.py runserver_plus 0.0.0.0:8000 --nopin
+    environment:
+      - ENV_FILE=env/local.env
+      - PYTHONUNBUFFERED=1
+
+    volumes:
+      - .:/usr/src/app:cached
+
+  db:
+    image: "postgres:15.3"
+    ports:
+      - "5432:5432"
+    expose:
+      - "5432"

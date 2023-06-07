@@ -1,0 +1,7 @@
+Django==4.2.1
+django-environ==0.10.0
+django-extensions==3.2.1
+django-ninja==0.22.1
+psycopg2-binary==2.9.6
+ipython==8.14.0
+Werkzeug==2.3.4 # do not install on prod
